@@ -28,4 +28,5 @@ axios.get('https://devnauts.tistory.com/95').then((res) => {
     {
         console.log(item.textContent);
     });
+    
 });
