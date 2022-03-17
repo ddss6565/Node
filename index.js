@@ -48,8 +48,7 @@ for(var i=0;i<1000;i++) {
 */  
 
 axios.get('http://localhost:3000/users').then((res) => {
-    fs.writeFile('data1.json', JSON.stringify(res.data), 'utf8', function(error)
-    {
+    fs.writeFile('data1.json', JSON.stringify(res.data), 'utf8', function(error) {
         console.log('write end');
     });
 });
