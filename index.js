@@ -8,6 +8,8 @@ const express = require('./js/express.js');
 
 const { sequelize } = require('./models');
 
+var fs = require('fs');
+
 const rule = new schedule.RecurrenceRule();
 rule.second = [0, new schedule.Range(1, 60)];
 
@@ -28,7 +30,6 @@ http.createServer(function(req, res)
 */
 
 /*
-
 axios.get('https://devnauts.tistory.com/95').then((res) => 
 {
     const dom = new JSDOM(res.data);
@@ -40,10 +41,15 @@ axios.get('https://devnauts.tistory.com/95').then((res) =>
 });
 */
 // app.println();
-for(var i=0;i<1000;i++)
+/*
+for(var i=0;i<1000;i++) {
     app.create();
+}
+*/  
 
-axios.get('http://localhost:3000/users').then((res) =>
-{
-    console.log(res.data);
+axios.get('http://localhost:3000/users').then((res) => {
+    fs.writeFile('data1.json', JSON.stringify(res.data), 'utf8', function(error)
+    {
+        console.log('write end');
+    });
 });
