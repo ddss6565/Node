@@ -40,5 +40,10 @@ axios.get('https://devnauts.tistory.com/95').then((res) =>
 });
 */
 // app.println();
-for(var i=0;i<10000;i++)
+for(var i=0;i<1000;i++)
     app.create();
+
+axios.get('http://localhost:3000/users').then((res) =>
+{
+    console.log(res.data);
+});
